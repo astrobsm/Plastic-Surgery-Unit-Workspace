@@ -1,0 +1,8 @@
+## License
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+## Contributions
+Contributions are welcome! Fork the repository and submit pull requests.
+
+## Support
+For support or issues, contact **astrobsm@support.com** or open an issue in the repository.

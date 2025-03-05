@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plastic Surgery Unit Workspace</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+        }
+        .header {
+            background-color: #008000;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+        }
+        .container {
+            display: flex;
+        }
+        .sidebar {
+            width: 20%;
+            background: #ffbf00;
+            padding: 15px;
+            height: 100vh;
+        }
+        .content {
+            width: 80%;
+            padding: 20px;
+        }
+        button {
+            background: #008000;
+            color: white;
+            padding: 10px;
+            border: none;
+            margin: 5px;
+            cursor: pointer;
+        }
+        form {
+            background: #f2f2f2;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Plastic Surgery Unit Workspace</div>
+    <div class="container">
+        <div class="sidebar">
+            <h3>Menu</h3>
+            <button onclick="loadPage('dashboard')">Dashboard</button>
+            <button onclick="loadPage('patients')">Patient Management</button>
+            <button onclick="loadPage('admission')">Patient Admission</button>
+            <button onclick="loadPage('discharge')">Patient Discharge</button>
+            <button onclick="loadPage('surgery')">Surgery Scheduling</button>
+            <button onclick="loadPage('wound')">Wound Care Tracking</button>
+            <button onclick="loadPage('reminders')">Reminders</button>
+            <button onclick="loadPage('reports')">Reports & Analytics</button>
+        </div>
+        <div class="content" id="mainContent">
+            <h2>Welcome to Plastic Surgery Unit Workspace</h2>
+            <p>Select a menu option to proceed.</p>
+        </div>
+    </div>
+
+    <script>
+        function loadPage(page) {
+            let content = document.getElementById("mainContent");
+            switch(page) {
+                case 'dashboard':
+                    content.innerHTML = "<h2>Dashboard</h2><p>View upcoming events and statistics.</p>";
+                    break;
+                case 'patients':
+                    content.innerHTML = `<h2>Patient Management</h2>
+                    <form>
+                        <label>Patient ID:</label>
+                        <input type="text" placeholder="Generated Unique ID" readonly>
+                        <label>Patient Name:</label>
+                        <input type="text" placeholder="Enter full name">
+                        <label>Age:</label>
+                        <input type="number" placeholder="Enter age">
+                        <label>Diagnosis:</label>
+                        <textarea placeholder="Enter diagnosis details"></textarea>
+                        <button type="submit">Save Record</button>
+                    </form>`;
+                    break;
+                case 'admission':
+                    content.innerHTML = `<h2>Patient Admission</h2>
+                    <form>
+                        <label>Patient ID:</label>
+                        <input type="text" placeholder="Enter patient ID">
+                        <label>Ward:</label>
+                        <input type="text" placeholder="Enter ward location">
+                        <label>Bed Number:</label>
+                        <input type="text" placeholder="Enter bed number">
+                        <button type="submit">Admit Patient</button>
+                    </form>`;
+                    break;
+                case 'discharge':
+                    content.innerHTML = `<h2>Patient Discharge</h2>
+                    <form>
+                        <label>Patient ID:</label>
+                        <input type="text" placeholder="Enter patient ID">
+                        <button type="submit">Discharge Patient</button>
+                    </form>`;
+                    break;
+                case 'surgery':
+                    content.innerHTML = `<h2>Surgery Scheduling</h2>
+                    <form>
+                        <label>Patient ID:</label>
+                        <input type="text" placeholder="Enter patient ID">
+                        <label>Pre-Surgery Photo:</label>
+                        <input type="file">
+                        <label>Procedure Type:</label>
+                        <input type="text" placeholder="Enter procedure type">
+                        <label>Date & Time:</label>
+                        <input type="datetime-local">
+                        <label>Surgeon Assigned:</label>
+                        <input type="text" placeholder="Enter surgeon name">
+                        <label>Post-Surgery Photos (1 week, 2 weeks):</label>
+                        <input type="file" multiple>
+                        <button type="submit">Schedule Surgery</button>
+                    </form>`;
+                    break;
+                case 'wound':
+                    content.innerHTML = `<h2>Wound Care Tracking</h2>
+                    <form>
+                        <label>Patient ID:</label>
+                        <input type="text" placeholder="Enter patient ID">
+                        <label>Wound Location:</label>
+                        <input type="text" placeholder="Enter body part">
+                        <label>Wound Image:</label>
+                        <input type="file">
+                        <label>Wound Description:</label>
+                        <textarea placeholder="Describe wound condition"></textarea>
+                        <label>Next Dressing Date:</label>
+                        <input type="date">
+                        <button type="submit">Save Record</button>
+                    </form>`;
+                    break;
+                case 'reminders':
+                    content.innerHTML = `<h2>Reminders</h2>
+                    <p>Automated reminders for scheduled surgeries, dressing changes, and follow-ups.</p>`;
+                    break;
+                case 'reports':
+                    content.innerHTML = `<h2>Reports & Analytics</h2>
+                    <form>
+                        <label>Select Report Type:</label>
+                        <select>
+                            <option>Weekly Report</option>
+                            <option>Monthly Report</option>
+                            <option>Quarterly Report</option>
+                            <option>Annual Report</option>
+                        </select>
+                        <button type="submit">Generate Report</button>
+                    </form>`;
+                    break;
+                default:
+                    content.innerHTML = "<h2>Welcome</h2><p>Select a menu option.</p>";
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
